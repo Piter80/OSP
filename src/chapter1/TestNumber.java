@@ -1,23 +1,30 @@
 package chapter1;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestNumber {
-    public static double sum(List<Number> num) {
-        double sum = 0.0;
-        for (Number n: num) {
-            sum += n.doubleValue();
-        }
-
-        return sum;
-    }
     public static void main(String[] args) {
-        List<Number> nums = new ArrayList<>();
-        nums.add(new Byte((byte)10));
-        nums.add(new Integer(10));
-        nums.add(new Float(10f));
-        nums.add(new Double(10d));
-        System.out.println(sum(nums));
+        Test test = new ExtendedTest();
+        System.out.println(test.x + " " + test.y);
+        System.err.println("Err");
+
+    }
+}
+
+class Test {
+    int x,y;
+    Test () {
+        x = 10; y=20;
+    }
+    Test (int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+class ExtendedTest extends Test {
+    int x,y;
+    ExtendedTest () {
+        super(1000, 2000);
+        this.x = 100;
+        this.y = 200;
     }
 }
